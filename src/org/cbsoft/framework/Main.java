@@ -4,10 +4,9 @@ public class Main {
 	
 	public static void main(String[] args){
 		Product p = new Product("notebook", "HP", 1999.99, "2348203894032948");
-		
-		CompositePostProcessor cpp = new CompositePostProcessor(new Crypto(5), new Compressor());
+		p.setSecretCode("Não aparecer");
 				
-		FileSerializer cxs = new FileSerializer(new PropertiesFormatter(), cpp);
+		FileSerializer cxs = new FileSerializer(new PropertiesFormatter(), new Compressor());
 		cxs.generateFile("product.zip", p);
 		
 	}
